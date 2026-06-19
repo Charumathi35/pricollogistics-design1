@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries | Pricol Logistics</title>
+    <meta name="description"
+        content="Pricol Logistics provides specialized supply chain solutions across diverse industries including Automotives, E-commerce, Life Sciences, and more.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Industries Pinned Scrollytelling Styles */
+        .industries-section {
+            width: 100%;
+            height: 150%;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .scrolly-container {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            /* Changed back to center for better vertical balance */
+            gap: 6rem;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        /* Sticky Sidebar inside Pin */
+        .scrolly-sidebar {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* Move items to bottom as requested */
+            height: 450px;
+            z-index: 10;
+            position: relative;
+            overflow: hidden;
+            /* For moving text */
+        }
+
+        .sidebar-top {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            height: 100%;
+            align-items: flex-end;
+            /* Start from bottom */
+        }
+
+        .progress-line-container {
+            width: 2px;
+            background: rgba(0, 0, 0, 0.05);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            bottom: 0;
+            /* Grow from bottom upwards */
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: var(--primary-blue);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding-left: 2rem;
+            width: 100%;
+            transition: transform 0.1s linear;
+        }
+
+        .sidebar-nav li a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.253);
+            transition: all 0.3s ease;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .sidebar-nav li.active a {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .sidebar-bottom {
+            padding-left: 0.5rem;
+        }
+
+        .mouse-scroll {
+            width: 20px;
+            height: 35px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .mouse-scroll::after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: var(--primary-blue);
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            animation: scroll-anim 2s infinite;
+        }
+
+        @keyframes scroll-anim {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 15px);
+            }
+        }
+
+        /* Content Stack */
+        .scrolly-content-stack {
+            flex: 1;
+            position: relative;
+            height: 100%;
+        }
+
+        .industry-block {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .industry-block.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .industry-block .tag {
+            background: rgba(0, 113, 187, 0.05);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            width: fit-content;
+        }
+
+        .industry-block h2 {
+            width: 100%;
+            font-size: 2rem;
+            /* Reduced size as requested */
+            margin: 2.0rem 0 0.2rem 0;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .industry-block p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 650px;
+            margin-bottom: 1.5rem;
+        }
+
+        .industry-visual {
+            width: 100%;
+            height: 420px;
+            background: #e5eaec;
+            /* Requested blue background */
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.04);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .industry-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+            position: relative;
+            /* Enabled for independent movement */
+        }
+
+        /* Mobile Adjustments - mini horizontal menu */
+        @media (max-width: 1024px) {
+            .industries-section {
+                height: auto !important;
+            }
+
+            .scrolly-container {
+                flex-direction: column;
+                height: 90%;
+                padding-top: 8rem;
+                gap: 4rem;
+            }
+
+            .scrolly-sidebar {
+                position: sticky;
+                top: 5rem;
+                width: 100%;
+                background: #fff;
+                z-index: 100;
+                padding: 2rem 0;
+                border-bottom: 1px solid #eee;
+                height: auto;
+                justify-content: center;
+                overflow: visible;
+            }
+
+            .sidebar-top {
+                height: auto;
+                align-items: center;
+            }
+
+            .progress-line-container {
+                display: none;
+            }
+
+            .sidebar-nav {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 2rem;
+                white-space: nowrap;
+                scrollbar-width: none;
+                padding-left: 0;
+                transform: none !important;
+            }
+
+            .sidebar-nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .sidebar-nav li a {
+                font-size: 0.75rem;
+            }
+
+            .sidebar-nav li.active a {
+                border-bottom: 2px solid var(--primary-blue);
+                padding-bottom: 0.5rem;
+            }
+
+            .sidebar-bottom {
+                display: none;
+            }
+
+            .scrolly-content-stack {
+                height: auto;
+                display: block;
+            }
+
+            .industry-block {
+                position: static;
+                opacity: 1;
+                margin-bottom: 8rem;
+            }
+
+            .industry-block h2 {
+                font-size: 2.8rem;
+            }
+
+            .industry-visual {
+                height: 300px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+            </div>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="about.html">ABOUT US</a></li>
+                <li class="nav-item"><a href="service.html">SERVICES</a></li>
+                <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
+                <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
+                <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
+                <li class="nav-item"><a href="contact.html" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <section class="industries-section" id="pinned-trigger">
+                <div class="container scrolly-container">
+
+                    <!-- Sidebar Navigation -->
+                    <div class="scrolly-sidebar">
+                        <div class="sidebar-top">
+                            <div class="progress-line-container">
+                                <div class="progress-line-fill" id="indicator"></div>
+                            </div>
+                            <ul class="sidebar-nav">
+                                <li class="nav-link"><a href="#apparels">Apparels & Lifestyle</a></li>
+                                <li class="nav-link"><a href="#automotives">Automotives</a></li>
+                                <li class="nav-link"><a href="#ecommerce">E-Commerce</a></li>
+                                <li class="nav-link"><a href="#electronics">Electronics & Technology</a></li>
+                                <li class="nav-link"><a href="#fmcg">FMCG</a></li>
+                                <li class="nav-link"><a href="#foods">Frozen & Processed Foods</a></li>
+                                <li class="nav-link"><a href="#perishables">Fruits & Vegetables</a></li>
+                                <li class="nav-link"><a href="#healthcare">Life Sciences & Healthcare</a></li>
+                                <li class="nav-link"><a href="#publications">Publications</a></li>
+                                <li class="nav-link"><a href="#smes">SMEs</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-bottom">
+                            <div class="mouse-scroll"></div>
+                        </div>
+                    </div>
+
+                    <!-- Pinned Layered Content -->
+                    <div class="scrolly-content-stack">
+
+                        <!-- 01: Apparels -->
+                        <div class="industry-block active" data-index="0">
+                            <h2>Apparels & Lifestyle</h2>
+                            <p>We offer specialized logistics solutions for footwear, textiles, and premium fashion
+                                retail, focusing on handling, speed-to-market, and global distribution.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/111.png" alt="Apparels Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 02: Automotives -->
+                        <div class="industry-block" data-index="1">
+                            <h2>Automotives</h2>
+                            <p>Expert handling and transportation of automotive components and precision-engineered
+                                parts, supporting both localized movement and international supply chains.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/112.png" alt="Automotive Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 03: E-Commerce -->
+                        <div class="industry-block" data-index="2">
+                            <h2>E-Commerce</h2>
+                            <p>Scalable last-mile delivery and fulfillment solutions designed for the digital
+                                marketplace, ensuring rapid turnaround and high customer satisfaction.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/113.png" alt="E-Commerce Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 04: Electronics -->
+                        <div class="industry-block" data-index="3">
+                            <h2>Electronics & Technology</h2>
+                            <p>Secure, time-sensitive transport for high-value electronic goods and tech infrastructure,
+                                with dedicated monitoring and asset protection.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/114.png" alt="Tech Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 05: FMCG -->
+                        <div class="industry-block" data-index="4">
+                            <h2>FMCG</h2>
+                            <p>Wide-reaching distribution for fast-moving consumer goods, optimized for constant supply
+                                and rapid restocking across national networks.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/115.png" alt="FMCG Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 06: Frozen Foods -->
+                        <div class="industry-block" data-index="5">
+                            <h2>Frozen & Processed Foods</h2>
+                            <p>Temperature-controlled supply chain and 3PL warehousing to maintain maximum food safety,
+                                shelf life, and freshness from factory to table.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/116.png" alt="Food Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 07: Perishables -->
+                        <div class="industry-block" data-index="6">
+                            <h2>Fruits & Vegetables</h2>
+                            <p>Specialized cold-chain logistics utilizing refrigerated transport and storage hubs to
+                                maintain the nutritional quality of perishables.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/117.png" alt="Perishables Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 08: Healthcare -->
+                        <div class="industry-block" data-index="7">
+                            <h2>Life Sciences & Healthcare</h2>
+                            <p>Compliant, secure, and rapid transport for pharmaceutical, biomedical, and medical
+                                equipment with highly regulated handling protocols.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/118.png" alt="Healthcare Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 09: Publications -->
+                        <div class="industry-block" data-index="8">
+                            <h2>Publications</h2>
+                            <p>Efficient distribution and logistics for the publishing and media industry, providing
+                                reliable bulk transport for national reach.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/119.png" alt="Publications Logistics">
+                            </div>
+                        </div>
+
+                        <!-- 10: SMEs -->
+                        <div class="industry-block" data-index="9">
+                            <h2>SMEs</h2>
+                            <p>Tailored, flexible, and cost-effective logistics solutions specifically designed to
+                                empower small and medium enterprises to scale globally.</p>
+                            <div class="industry-visual">
+                                <img src="Images/industries/120.png" alt="SME Logistics">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <footer class="main-footer">
+                <div class="container footer-grid">
+                    <div class="footer-col" id="footer-contact">
+                        <h3>CONTACT US</h3>
+                        <div class="logo">
+                            <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                        </div>
+                    </div>
+                    <div class="footer-col" id="footer-links">
+                        <h3>QUICK LINKS</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="service.html">Product & Services</a></li>
+                            <li><a href="industries.html">Industries</a></li>
+                            <li><a href="customers.html">Key Customers</a></li>
+                            <li><a href="coverage.html">Coverage</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col" id="footer-get-touch">
+                        <h3>GET IN TOUCH</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Pricol Logistics Private Limited, 1st Floor,<br>CPM Towers, 109, Race
+                                    Course,<br>Coimbatore 641 018.</span>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <a href="mailto:enquiry@pricollogistics.com">enquiry@pricollogistics.com</a>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <a href="tel:18001209990">1800 1209 990</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container bottom-content">
+                        <p>Copyright @2026 Pricol</p>
+                        <a href="#terms">Terms & Conditions</a>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="floating-contact">
+                <a href="mailto:enquiry@pricollogistics.com" class="float-item email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+                <a href="tel:18001209990" class="float-item phone">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                </a>
+                <a href="#" class="float-item web">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script>
+        // Init Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Core Scrollytelling Pinned Logic
+        const blocks = gsap.utils.toArray(".industry-block");
+        const links = gsap.utils.toArray(".nav-link");
+        const indicator = document.getElementById("indicator");
+
+        if (window.innerWidth > 1024) {
+            const sidebarNav = document.querySelector(".sidebar-nav");
+            const navHeight = sidebarNav.scrollHeight;
+            const containerHeight = 450;
+            const scrollDist = navHeight - containerHeight;
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#pinned-trigger",
+                    start: "top top",
+                    end: "+=5000",
+                    scrub: 1,
+                    pin: true,
+                    snap: 1 / (blocks.length - 1), // Lock precisely onto each sector
+                    onUpdate: (self) => {
+                        indicator.style.height = `${self.progress * 100}%`;
+                        if (scrollDist > 0) {
+                            gsap.set(sidebarNav, { y: -self.progress * scrollDist });
+                        }
+                    }
+                }
+            });
+
+            // Orchestrate the 10-layer transitions
+            blocks.forEach((block, i) => {
+                const startTime = i * (1 / blocks.length);
+                const nextStartTime = (i + 1) * (1 / blocks.length);
+
+                if (i > 0) {
+                    gsap.set(block, { opacity: 0, pointerEvents: "none" });
+                }
+
+                const updateLink = () => {
+                    links.forEach(l => l.classList.remove("active"));
+                    links[i].classList.add("active");
+                };
+
+                if (i > 0) {
+                    tl.to(block, {
+                        opacity: 1,
+                        duration: 0.1,
+                        pointerEvents: "auto",
+                        onStart: updateLink,
+                        onReverseComplete: () => {
+                            if (i > 0) {
+                                links.forEach(l => l.classList.remove("active"));
+                                links[i - 1].classList.add("active");
+                            }
+                        }
+                    }, startTime); // Start exactly at the segment interval
+
+                    tl.from(block.querySelector("h2"), { y: 20, opacity: 0, duration: 0.1 }, "<");
+                    tl.from(block.querySelector("p"), { y: 15, opacity: 0, duration: 0.1 }, "<0.03");
+
+                    const direction = i % 2 === 0 ? 60 : -60;
+                    tl.from(block.querySelector(".industry-visual img"), {
+                        x: direction,
+                        opacity: 0,
+                        duration: 0.15,
+                        ease: "power2.out"
+                    }, "<");
+                } else {
+                    links[0].classList.add("active");
+                }
+
+                if (i < blocks.length - 1) {
+                    tl.to(block, {
+                        opacity: 0,
+                        duration: 0.1,
+                        pointerEvents: "none"
+                    }, nextStartTime); // Fade out exactly when next interval begins
+                }
+            });
+
+            // Single-flick scrolling (one scroll = one section)
+            let currentIndex = 0;
+            let isAnimating = false;
+            const segments = blocks.length - 1;
+            const triggerOffset = document.getElementById("pinned-trigger").offsetTop;
+            const totalWidth = 5000; // Match tl.scrollTrigger.end duration
+
+            function gotoSection(index) {
+                if (index < 0 || index > segments || isAnimating) return;
+                isAnimating = true;
+                currentIndex = index;
+
+                const targetScroll = triggerOffset + (index / segments) * totalWidth;
+
+                lenis.scrollTo(targetScroll, {
+                    duration: 1.2,
+                    ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Snappy ease
+                    onComplete: () => {
+                        isAnimating = false;
+                    }
+                });
+            }
+
+            // Capture wheel events for section-by-section movement
+            ScrollTrigger.observe({
+                target: "#pinned-trigger",
+                type: "wheel,touch,pointer",
+                onUp: () => !isAnimating && gotoSection(currentIndex - 1),
+                onDown: () => !isAnimating && gotoSection(currentIndex + 1),
+                tolerance: 30, // Sensitivity
+                preventDefault: true
+            });
+
+            // Stabilized Link clicking
+            links.forEach((link, i) => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    gotoSection(i);
+                });
+            });
+        } else {
+            // Simple logic for mobile vertical scroll
+            blocks.forEach((block, i) => {
+                ScrollTrigger.create({
+                    trigger: block,
+                    start: "top center",
+                    end: "bottom center",
+                    onToggle: self => {
+                        if (self.isActive) {
+                            links.forEach(l => l.classList.remove("active"));
+                            links[i].classList.add("active");
+                            links[i].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Hamburger Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

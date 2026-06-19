@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricol Logistics | Global Supply Chain Solutions</title>
+    <meta name="description"
+        content="Pricol Logistics provides premium, end-to-end supply chain solutions with a focus on reliability and innovation.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+            </div>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="about.html">ABOUT US</a></li>
+                <li class="nav-item"><a href="service.html">SERVICES</a></li>
+                <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
+                <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
+                <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
+                <li class="nav-item"><a href="contact.html" class="cta-btn">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Scroll Sequence Landing Section -->
+            <section class="scroll-sequence" id="home">
+                <div class="canvas-container">
+                    <canvas id="scroll-canvas"></canvas>
+                </div>
+
+                <div class="scroll-content">
+                    <div class="sequence-slide active" id="slide-1">
+                        <span class="tag">Leading Logistics</span>
+                        <h1>Global Commerce, <br>Redefined.</h1>
+                    </div>
+                    <div class="sequence-slide" id="slide-2">
+                        <span class="tag">Seamless Transit</span>
+                        <h1>Navigating Oceans <br>with Precision.</h1>
+                    </div>
+                    <div class="sequence-slide" id="slide-3">
+                        <span class="tag">The Path Forward</span>
+                        <h1>Innovation in <br>Every Mile.</h1>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span>SCROLL TO EXPLORE</span>
+                    <div class="mouse"></div>
+                </div>
+            </section>
+
+            <!-- Hero Section (Now following the sequence) -->
+            <section class="hero" id="about-hero">
+                <div class="hero-bg" id="hero-bg">
+                    <img src="assets/images/hero.png" alt="Logistics Port">
+                </div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Reliability in Motion. Excellence in Delivery.</h1>
+                        <p>Bridging global markets with innovative logistics and supply chain strategies tailored for
+                            your business growth.</p>
+                        <a href="service.html" class="cta-btn">Explore Solutions</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="section-padding" id="about">
+                <div class="container"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div class="about-text">
+                        <h2 style="font-size: 3rem; margin-bottom: 2rem;">Seamless Logistics, <br><span
+                                style="color: var(--primary-blue);">Unparalleled Trust.</span></h2>
+                        <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">Pricol Logistics is
+                            more than just a transport provider. We are your strategic partner in navigating the
+                            complexities of modern commerce. With decades of expertise, we offer a comprehensive suite
+                            of logistics services designed to optimize your operations and drive efficiency.</p>
+                        <ul style="list-style: none; display: grid; gap: 1rem;">
+                            <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)"
+                                    stroke-width="2">
+                                    <path d="M20 6L9 17L4 12" />
+                                </svg>
+                                24/7 Global Tracking systems
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)"
+                                    stroke-width="2">
+                                    <path d="M20 6L9 17L4 12" />
+                                </svg>
+                                Strategic Warehouse Network
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)"
+                                    stroke-width="2">
+                                    <path d="M20 6L9 17L4 12" />
+                                </svg>
+                                Multi-modal Transportation
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-image"
+                        style="border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1);">
+                        <img src="assets/images/warehouse.png" alt="Warehouse Operations"
+                            style="width: 100%; display: block;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ship Journey Section -->
+            <section class="journey-section" id="journey">
+                <div class="container journey-wrapper">
+                    <div class="journey-header">
+                        <span class="tag">The Global Route</span>
+                        <h2>Bridging Oceans with Precision.</h2>
+                    </div>
+                </div>
+
+                <div class="animation-container">
+                    <!-- Invisible Path for GSAP -->
+                    <svg class="main-svg" viewBox="0 0 1400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Grid/Waves -->
+                        <path id="water-path"
+                            d="M-100 400C100 350 300 450 500 400C700 350 900 450 1100 400C1300 350 1500 450 1700 400"
+                            stroke="rgba(0,113,187,0.1)" stroke-width="2" stroke-dasharray="10 10" />
+
+                        <!-- Main Movement Path (Invisible) -->
+                        <path id="ship-path" d="M-200 500 Q 200 400 600 550 T 1400 450" fill="none"
+                            stroke="transparent" />
+
+                        <!-- Containers (Initially hidden/above) -->
+                        <g id="containers-group">
+                            <rect class="container-box" id="c1" x="0" y="-100" width="40" height="20" rx="2"
+                                fill="#F58220" opacity="0" />
+                            <rect class="container-box" id="c2" x="45" y="-100" width="40" height="20" rx="2"
+                                fill="#0071BB" opacity="0" />
+                            <rect class="container-box" id="c3" x="90" y="-100" width="40" height="20" rx="2"
+                                fill="#1969A6" opacity="0" />
+                        </g>
+
+                        <!-- Ship SVG Group -->
+                        <g id="ship">
+                            <!-- Hull -->
+                            <path d="M-60 10 L 60 10 L 50 30 L -50 30 Z" fill="#333" />
+                            <!-- Bridge/Cabin -->
+                            <rect x="-20" y="-10" width="40" height="20" fill="#eee" />
+                            <rect x="-10" y="-15" width="20" height="5" fill="#333" />
+                            <!-- Deck Area for Containers -->
+                            <line x1="-40" y1="10" x2="40" y2="10" stroke="#666" stroke-width="2" />
+                        </g>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Services - Scrollytelling Section -->
+            <section class="scrolly-container" id="services">
+                <div class="scrolly-sidebar">
+                    <div class="sidebar-item active" data-target="s1">Freight Forwarding</div>
+                    <div class="sidebar-item" data-target="s2">Warehousing</div>
+                    <div class="sidebar-item" data-target="s3">Distribution</div>
+                    <div class="sidebar-item" data-target="s4">Supply Chain Consulting</div>
+                </div>
+                <div class="scrolly-content">
+                    <div class="service-card active" id="s1">
+                        <h2>Global Freight Forwarding</h2>
+                        <p>End-to-end air, sea, and land transport solutions that ensure your goods reach their
+                            destination safely and on time, anywhere in the world.</p>
+                    </div>
+                    <div class="service-card" id="s2">
+                        <h2>Advanced Warehousing</h2>
+                        <p>State-of-the-art storage facilities with real-time inventory management, climate control, and
+                            rapid fulfillment capabilities.</p>
+                    </div>
+                    <div class="service-card" id="s3">
+                        <h2>Seamless Distribution</h2>
+                        <p>Last-mile delivery and localized distribution networks that bridge the gap between your
+                            warehouse and the end customer.</p>
+                    </div>
+                    <div class="service-card" id="s4">
+                        <h2>SCM Consulting</h2>
+                        <p>Expert analysis and optimization of your supply chain to reduce costs, improve lead times,
+                            and enhance overall performance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parallax Middle Section -->
+            <section id="parallax-mid" style="height: 60vh; position: relative; overflow: hidden;">
+                <img src="assets/images/truck.png" alt="Truck on Road" id="parallax-img"
+                    style="position: absolute; width: 100%; height: 120%; object-fit: cover; top: -10%;">
+                <div
+                    style="position: absolute; inset: 0; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; color: white;">
+                    <h2
+                        style="font-size: 4rem; text-align: center; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">
+                        Moving the World.</h2>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="section-padding stats" id="stats">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3 class="counter" data-count="25">0</h3>
+                            <p>Years of Expertise</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-count="150">0</h3>
+                            <p>Countries Served</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-count="1200">0</h3>
+                            <p>Global Partners</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-count="98">0</h3>
+                            <p>% Success Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="section-padding" id="contact" style="background: var(--white);">
+                <div class="container" style="text-align: center;">
+                    <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Ready to optimize your supply chain?</h2>
+                    <p
+                        style="font-size: 1.25rem; color: var(--text-light); margin-bottom: 3rem; max-width: 700px; margin-inline: auto;">
+                        Contact our logistics experts today for a custom solution tailored to your business needs.</p>
+                    <a href="mailto:contact@pricollogistics.com" class="cta-btn"
+                        style="padding: 1.2rem 3.5rem; font-size: 1.15rem;">Get a Quote Now</a>
+                </div>
+            </section>
+
+            <footer class="main-footer">
+                <div class="container footer-grid">
+                    <div class="footer-col" id="footer-contact">
+                        <h3>CONTACT US</h3>
+                        <div class="logo">
+                            <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                        </div>
+                    </div>
+                    <div class="footer-col" id="footer-links">
+                        <h3>QUICK LINKS</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="service.html">Product & Services</a></li>
+                            <li><a href="industries.html">Industries</a></li>
+                            <li><a href="customers.html">Key Customers</a></li>
+                            <li><a href="coverage.html">Coverage</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col" id="footer-get-touch">
+                        <h3>GET IN TOUCH</h3>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Pricol Logistics Private Limited, 1st Floor,<br>CPM Towers, 109, Race
+                                    Course,<br>Coimbatore 641 018.</span>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <a href="mailto:enquiry@pricollogistics.com">enquiry@pricollogistics.com</a>
+                            </div>
+                            <div class="info-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <a href="tel:18001209990">1800 1209 990</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container bottom-content">
+                        <p>Copyright @2026 Pricol</p>
+                        <a href="#terms">Terms & Conditions</a>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="floating-contact">
+                <a href="mailto:enquiry@pricollogistics.com" class="float-item email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+                <a href="tel:18001209990" class="float-item phone">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                </a>
+                <a href="#" class="float-item web">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- GSAP and Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
