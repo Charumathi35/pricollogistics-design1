@@ -230,6 +230,18 @@ megaTriggers.forEach(trigger => {
     });
 });
 
+// Mobile Accordion for Contact Dropdown
+const dropdownTriggers = document.querySelectorAll(".nav-item.dropdown-item > a");
+dropdownTriggers.forEach(trigger => {
+    trigger.addEventListener("click", (e) => {
+        if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            const parent = trigger.parentElement;
+            parent.classList.toggle("active");
+        }
+    });
+});
+
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
         nav.classList.add("scrolled");

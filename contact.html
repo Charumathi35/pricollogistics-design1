@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Pricol Logistics</title>
+    <meta name="description"
+        content="Get in touch with Pricol Logistics. Track active fleets, submit booking inquiries, and connect with our corporate headquarters in Coimbatore.">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +14,9 @@
     <nav id="navbar">
         <div class="container nav-content">
             <div class="logo">
-                <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                <a href="index.html">
+                    <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                </a>
             </div>
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
                 <span></span>
@@ -25,24 +29,349 @@
                 <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
                 <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
                 <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
-                <li class="nav-item"><a href="contact.html" class="cta-btn">CONTACT US</a></li>
+                <li class="nav-item dropdown-item">
+                    <a href="javascript:void(0)" class="cta-btn">CONTACT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="career.html">CAREER</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
+
     <main id="smooth-wrapper">
         <div id="smooth-content">
-            <section class="section-padding" style="margin-top: 100px; min-height: 50vh;">
-                <div class="container" style="text-align: center;">
-                    <h1 style="font-size: 4rem; color: var(--primary-blue); margin-bottom: 2rem;">Contact Us</h1>
-                    <p
-                        style="font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto; margin-bottom: 2rem;">
-                        Get in touch with our experts to find out how our logistics solutions can benefit your business.
-                    </p>
-                    <a href="mailto:enquiry@pricollogistics.com" class="cta-btn"
-                        style="padding: 1.2rem 3.5rem; font-size: 1.15rem;">Email Us</a>
+
+            <!-- Pinned Scroll Sequence Section (Truck moves left) -->
+            <!-- <section class="contact-scroll-sequence" id="contact-hero">
+                <div class="contact-canvas-container">
+                    <canvas id="contact-canvas"></canvas>
+                </div>
+
+                <div class="scroll-content">
+                    <div class="sequence-slide active" id="slide-1" style="opacity: 0; transform: translateY(30px);">
+                        <span class="tag">Fleet Operations</span>
+                        <h1>Always Pushing Forward.</h1>
+                    </div>
+                    <div class="sequence-slide" id="slide-2" style="opacity: 0; transform: translateY(30px);">
+                        <span class="tag">Global Network</span>
+                        <h1>Pricol CargoTrack Control Center.</h1>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span>SCROLL TO CONTROL CENTER</span>
+                    <div class="mouse"></div>
+                </div>
+            </section> -->
+
+            <!-- CargoTrack Dashboard section -->
+            <section class="cargotrack-dashboard" id="dashboard">
+                <div class="container">
+                    <!-- <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                        <span class="tag"
+                            style="background: rgba(0, 113, 187, 0.1); color: var(--primary-blue); padding: 0.6rem 1.2rem; border-radius: 100px; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">CARGOTRACK
+                            CONTROL PANEL</span>
+                        <h2 style="font-size: 3rem; margin-top: 1.5rem; font-weight: 800; color: #fff;">Connect with Our
+                            Command Hub</h2>
+                        <p style="color: #9ca3af; font-size: 1.1rem; margin-top: 1rem;">Submit dispatch requests, check
+                            active warehouse node statuses, and query live shipments.</p>
+                    </div> -->
+
+                    <div class="dashboard-grid">
+                        <!-- Left Panel: Dispatch Request & Tracking widget -->
+                        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+                            <!-- Dispatch Request Form -->
+                            <div class="dashboard-panel">
+                                <div class="panel-header">
+                                    <div class="panel-title">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                        </svg>
+                                        FLEET DISPATCH REQUEST
+                                    </div>
+                                    <span class="panel-title-badge">Form active</span>
+                                </div>
+                                <form id="dispatch-form">
+                                    <div class="dispatch-form-group">
+                                        <div class="form-field">
+                                            <label for="origin-hub">Origin Hub</label>
+                                            <select id="origin-hub" class="form-input" required>
+                                                <option value="" disabled selected>Select Origin</option>
+                                                <option value="Coimbatore">Coimbatore Hub (HQ)</option>
+                                                <option value="Chennai">Chennai Hub</option>
+                                                <option value="Bangalore">Bangalore Hub</option>
+                                                <option value="Mumbai">Mumbai Hub</option>
+                                                <option value="Pune">Pune Hub</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="dest-hub">Destination Hub</label>
+                                            <select id="dest-hub" class="form-input" required>
+                                                <option value="" disabled selected>Select Destination</option>
+                                                <option value="Chennai">Chennai Hub</option>
+                                                <option value="Bangalore">Bangalore Hub</option>
+                                                <option value="Mumbai">Mumbai Hub</option>
+                                                <option value="Delhi">Delhi NCR Hub</option>
+                                                <option value="Pune">Pune Hub</option>
+                                                <option value="Kolkata">Kolkata Hub</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="dispatch-form-group">
+                                        <div class="form-field">
+                                            <label for="cargo-type">Cargo Type</label>
+                                            <select id="cargo-type" class="form-input" required>
+                                                <option value="" disabled selected>Select Cargo</option>
+                                                <option value="Automobile">Automobile Parts</option>
+                                                <option value="Processed Foods">Processed Foods</option>
+                                                <option value="Pharma">Pharmaceuticals</option>
+                                                <option value="Chemicals">Chemicals</option>
+                                                <option value="Industrial">Industrial Equipment</option>
+                                                <option value="Textiles">Textiles & Footwear</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="cargo-weight">Cargo Weight (Tons)</label>
+                                            <input type="number" id="cargo-weight" class="form-input"
+                                                placeholder="e.g. 15" min="1" required>
+                                        </div>
+                                    </div>
+                                    <div class="dispatch-form-group">
+                                        <div class="form-field">
+                                            <label for="contact-name">Contact Person</label>
+                                            <input type="text" id="contact-name" class="form-input"
+                                                placeholder="Your Name" required>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="contact-email">Email Address</label>
+                                            <input type="email" id="contact-email" class="form-input"
+                                                placeholder="name@company.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-field" style="margin-bottom: 2rem;">
+                                        <label for="message">Dispatch Instructions / Remarks</label>
+                                        <textarea id="message" class="form-input" rows="4"
+                                            placeholder="Enter shipment specifics, requested transit mode, or special instructions..."></textarea>
+                                    </div>
+                                    <button type="submit" class="dispatch-btn">
+                                        DISPATCH ENQUIRY
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <line x1="22" y1="2" x2="11" y2="13" />
+                                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Interactive Shipment Tracker Simulation -->
+                            <div class="dashboard-panel">
+                                <div class="panel-header">
+                                    <div class="panel-title">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="22" y1="12" x2="2" y2="12" />
+                                            <path
+                                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                        </svg>
+                                        LIVE SHIPMENT QUERY
+                                    </div>
+                                    <span class="panel-title-badge">Simulator active</span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem;">Enter a query
+                                    reference (e.g. <strong>PL-123</strong> or submit the dispatch form above) to test
+                                    real-time tracking feeds.</p>
+                                <div style="display: flex; gap: 1rem;">
+                                    <input type="text" id="tracking-input" class="form-input" style="flex-grow: 1;"
+                                        placeholder="Enter Booking / Tracking ID">
+                                    <button id="tracking-btn" class="dispatch-btn"
+                                        style="width: auto; padding: 0 1.5rem; box-shadow: none;">
+                                        QUERY
+                                    </button>
+                                </div>
+
+                                <!-- Simulation log flow -->
+                                <div class="tracking-logs" id="tracking-logs">
+                                    <div class="tracking-log-item completed">
+                                        <div class="log-status-dot"></div>
+                                        <div class="log-details">
+                                            <h4>Shipment Dispatched</h4>
+                                            <p>Processed at Coimbatore HQ Hub</p>
+                                            <span class="log-time">Completed - 10:15 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="tracking-log-item active">
+                                        <div class="log-status-dot"></div>
+                                        <div class="log-details">
+                                            <h4>In Transit</h4>
+                                            <p>Cargo vehicle moving north-east towards destination via National Highway
+                                                NH-44</p>
+                                            <span class="log-time">Active Feed - 02:30 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="tracking-log-item">
+                                        <div class="log-status-dot"></div>
+                                        <div class="log-details">
+                                            <h4>Arrival at Destination Hub</h4>
+                                            <p>Final sorting and local delivery preparation</p>
+                                            <span class="log-time" style="color: var(--text-light); opacity: 0.8;">Estimated - 06:45 PM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Contact details & Node status dashboard -->
+                        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+                            <!-- HQ Contact Card -->
+                            <div class="dashboard-panel">
+                                <div class="panel-header">
+                                    <div class="panel-title">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        CONTROL CENTER HQ
+                                    </div>
+                                    <span class="panel-title-badge"
+                                        style="background: rgba(0, 113, 187, 0.15); color: var(--primary-blue);">Main
+                                        Node</span>
+                                </div>
+
+                                <!-- Custom Route Map Widget -->
+                                <div class="map-tracker-container">
+                                    <img src="Images/map.png" alt="India Route Map" class="map-bg">
+                                    <div class="map-overlay"></div>
+                                    <!-- Hotspot: Coimbatore HQ -->
+                                    <div class="map-pin" style="top: 75%; left: 38%;">
+                                        <div class="map-pin-pulse"></div>
+                                        <div class="map-pin-label">Coimbatore HQ</div>
+                                    </div>
+                                </div>
+
+                                <div class="dashboard-contact-list">
+                                    <!-- Corporate address -->
+                                    <div class="dashboard-contact-item">
+                                        <div class="contact-item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                                                <line x1="6" y1="6" x2="6.01" y2="6" />
+                                                <line x1="6" y1="18" x2="6.01" y2="18" />
+                                            </svg>
+                                        </div>
+                                        <div class="contact-item-details">
+                                            <div class="contact-item-label">REGISTERED & CORPORATE OFFICE</div>
+                                            <div class="contact-item-value" id="hq-address-text">
+                                                Pricol Logistics Private Limited<br>
+                                                1st Floor, CPM Towers,<br>
+                                                109, Race Course,<br>
+                                                Coimbatore - 641 018,<br>
+                                                Tamil Nadu, India.
+                                            </div>
+                                            <button class="copy-btn" id="copy-address-btn"
+                                                onclick="copyToClipboard('Pricol Logistics Private Limited, 1st Floor, CPM Towers, 109, Race Course, Coimbatore - 641 018, Tamil Nadu, India.', 'copy-address-btn')">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                                </svg>
+                                                Copy Address
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Support phone -->
+                                    <div class="dashboard-contact-item">
+                                        <div class="contact-item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                            </svg>
+                                        </div>
+                                        <div class="contact-item-details">
+                                            <div class="contact-item-label">Toll-Free Helpline</div>
+                                            <div class="contact-item-value">
+                                                <a href="tel:18001209990">1800 1209 990</a>
+                                            </div>
+                                            <div class="contact-item-label" style="margin-top: 0.8rem;">HQ Landline
+                                            </div>
+                                            <div class="contact-item-value">
+                                                <a href="tel:+914224336272">0422 4336272</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Support email -->
+                                    <div class="dashboard-contact-item">
+                                        <div class="contact-item-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path
+                                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                                <polyline points="22,6 12,13 2,6" />
+                                            </svg>
+                                        </div>
+                                        <div class="contact-item-details">
+                                            <div class="contact-item-label">General & Sales Inquiries</div>
+                                            <div class="contact-item-value">
+                                                <a
+                                                    href="mailto:enquiry@pricollogistics.com">enquiry@pricollogistics.com</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live operational status board -->
+                            <div class="dashboard-panel">
+                                <div class="panel-header">
+                                    <div class="panel-title">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                            <line x1="9" y1="3" x2="9" y2="21" />
+                                            <line x1="15" y1="3" x2="15" y2="21" />
+                                            <line x1="3" y1="9" x2="21" y2="9" />
+                                            <line x1="3" y1="15" x2="21" y2="15" />
+                                        </svg>
+                                        LIVE HUB STATUS BOARD
+                                    </div>
+                                    <span class="panel-title-badge"
+                                        style="background: rgba(16, 185, 129, 0.15); color: #10b981;">ONLINE</span>
+                                </div>
+                                <div class="status-board">
+                                    <div class="status-card">
+                                        <div class="status-value">Coimbatore <span class="pulse-dot"></span></div>
+                                        <div class="status-label">HQ Control</div>
+                                    </div>
+                                    <div class="status-card">
+                                        <div class="status-value">Chennai <span class="pulse-dot"></span></div>
+                                        <div class="status-label">Sea Node</div>
+                                    </div>
+                                    <div class="status-card">
+                                        <div class="status-value">Bangalore <span class="pulse-dot"></span></div>
+                                        <div class="status-label">Storage Hub</div>
+                                    </div>
+                                    <div class="status-card">
+                                        <div class="status-value">Mumbai <span class="pulse-dot"></span></div>
+                                        <div class="status-label">Port Node</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
+            <!-- Main Footer -->
             <footer class="main-footer">
                 <div class="container footer-grid">
                     <div class="footer-col" id="footer-contact">
@@ -104,10 +433,13 @@
             </footer>
         </div>
     </main>
+
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script>
+        // Init Lenis
         const lenis = new Lenis();
         function raf(time) {
             lenis.raf(time);
@@ -115,11 +447,196 @@
         }
         requestAnimationFrame(raf);
 
+        // Mobile Menu
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         mobileBtn.addEventListener('click', () => {
             mobileBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown click logic
+        const dropdownToggles = document.querySelectorAll('.dropdown-item > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // GSAP ScrollTrigger Sequence for Truck Canvas
+        gsap.registerPlugin(ScrollTrigger);
+
+        const canvas = document.getElementById("contact-canvas");
+        const ctx = canvas.getContext("2d");
+
+        const frameCount = 51;
+        const currentFrame = index => `./logistics/${index}.webp`;
+
+        const images = [];
+        const data = { frame: 1 };
+
+        // Preload images
+        for (let i = 1; i <= frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+        }
+
+        const render = () => {
+            const img = images[data.frame - 1];
+            if (!img || !img.complete) return;
+
+            const canvasRatio = canvas.width / canvas.height;
+            const imgRatio = img.width / img.height;
+            let dw, dh, ox, oy;
+
+            if (canvasRatio > imgRatio) {
+                dw = canvas.width;
+                dh = canvas.width / imgRatio;
+                ox = 0;
+                oy = (canvas.height - dh) / 2;
+            } else {
+                dw = canvas.height * imgRatio;
+                dh = canvas.height;
+                ox = (canvas.width - dw) / 2;
+                oy = 0;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, ox, oy, dw, dh);
+        };
+
+        const resize = () => {
+            const container = document.querySelector(".contact-scroll-sequence");
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+            render();
+        };
+
+        window.addEventListener("resize", resize);
+
+        // Ensure first image is drawn
+        images[0].onload = () => {
+            resize();
+        };
+
+        // ScrollTrigger sequence
+        const sequenceTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".contact-scroll-sequence",
+                start: "top top",
+                end: "+=3000",
+                scrub: 1,
+                pin: true,
+                anticipatePin: 1
+            }
+        });
+
+        // Animate sequence slides
+        const contactSlides = gsap.utils.toArray(".sequence-slide");
+        contactSlides.forEach((slide, i) => {
+            sequenceTl.to(slide, {
+                opacity: 1,
+                y: 0,
+                duration: 2,
+            }, i === 0 ? 0 : ">+1");
+
+            if (i < contactSlides.length - 1) {
+                sequenceTl.to(slide, {
+                    opacity: 0,
+                    y: -30,
+                    duration: 2,
+                }, ">+2");
+            }
+        });
+
+        // Link frames to the timeline
+        sequenceTl.to(data, {
+            frame: frameCount,
+            snap: "frame",
+            ease: "none",
+            duration: sequenceTl.duration(),
+            onUpdate: render
+        }, 0);
+
+        // Copy Address to clipboard utility
+        window.copyToClipboard = function (text, btnId) {
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById(btnId);
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px;"><path d="M20 6L9 17L4 12"/></svg> Copied!`;
+                btn.style.color = "#10b981";
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.color = "";
+                }, 2000);
+            });
+        };
+
+        // Interactive Tracking Widget Simulation
+        const trackInput = document.getElementById('tracking-input');
+        const trackBtn = document.getElementById('tracking-btn');
+        const trackingLogs = document.getElementById('tracking-logs');
+
+        trackBtn.addEventListener('click', () => {
+            const code = trackInput.value.trim().toUpperCase();
+            if (code) {
+                trackingLogs.style.display = 'block';
+                // Reset states
+                const items = trackingLogs.querySelectorAll('.tracking-log-item');
+                gsap.from(items, {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.4,
+                    stagger: 0.15,
+                    ease: "power2.out"
+                });
+            } else {
+                trackingLogs.style.display = 'none';
+            }
+        });
+
+        // Live dispatch form success feedback
+        const dispatchForm = document.getElementById('dispatch-form');
+        dispatchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = dispatchForm.querySelector('.dispatch-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `DISPATCHING...`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Generate tracking ID
+                const trackingId = 'PL-' + Math.floor(100000 + Math.random() * 900000);
+                btn.innerHTML = `DISPATCHED SUCCESSFULLY`;
+                btn.style.background = "#10b981";
+                btn.style.boxShadow = "0 10px 25px rgba(16, 185, 129, 0.3)";
+
+                // Show tracking feedback on the board
+                trackInput.value = trackingId;
+                trackingLogs.style.display = 'block';
+
+                const items = trackingLogs.querySelectorAll('.tracking-log-item');
+                gsap.from(items, {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.4,
+                    stagger: 0.15,
+                    ease: "power2.out"
+                });
+
+                // Re-enable form after some time
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = "";
+                    btn.style.boxShadow = "";
+                    btn.disabled = false;
+                    dispatchForm.reset();
+                }, 4000);
+            }, 1500);
         });
     </script>
 </body>

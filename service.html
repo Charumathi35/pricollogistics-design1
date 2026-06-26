@@ -218,7 +218,9 @@
     <nav id="navbar">
         <div class="container nav-content">
             <div class="logo">
-                <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                <a href="index.html">
+                    <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                </a>
             </div>
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
                 <span></span>
@@ -231,7 +233,13 @@
                 <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
                 <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
                 <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
-                <li class="nav-item"><a href="contact.html" class="cta-btn">CONTACT US</a></li>
+                <li class="nav-item dropdown-item">
+                    <a href="javascript:void(0)" class="cta-btn">CONTACT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="career.html">CAREER</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -519,6 +527,17 @@
         mobileBtn.addEventListener('click', () => {
             mobileBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown click logic
+        const dropdownToggles = document.querySelectorAll('.dropdown-item > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
         });
     </script>
 </body>

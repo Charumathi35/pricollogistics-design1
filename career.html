@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Pricol Logistics</title>
+    <meta name="description"
+        content="Join the team at Pricol Logistics. Explore our current career openings, learn about our values, and submit your job application to our operations team.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="overflow: hidden; background-color: var(--bg-light);">
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                </a>
+            </div>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="about.html">ABOUT US</a></li>
+                <li class="nav-item"><a href="service.html">SERVICES</a></li>
+                <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
+                <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
+                <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
+                <li class="nav-item dropdown-item">
+                    <a href="javascript:void(0)" class="cta-btn">CONTACT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="career.html">CAREER</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Full-Screen Interactive Hero / Video Workspace -->
+            <section class="career-hero-section">
+                <!-- Video Container (Z-Index: 2) -->
+                <div class="career-video-container" id="video-container">
+                    <video class="career-video-bg" id="career-video" autoplay muted playsinline>
+                        <source src="Images/truck_iconvideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- Skip Intro Button (for accessibility & block fallback) -->
+                    <button id="skip-intro-btn"
+                        style="position: absolute; bottom: 2rem; right: 2rem; z-index: 100; padding: 0.8rem 1.8rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 100px; color: #fff; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; transition: var(--transition-smooth); pointer-events: auto;">
+                        SKIP INTRO
+                    </button>
+                </div>
+
+                <!-- Static Background Image Container (Z-Index: 1) -->
+                <div class="career-bg-container" id="bg-container"></div>
+
+                <!-- Glassmorphic Application Form Overlay (Z-Index: 10) -->
+                <div class="career-form-overlay" id="form-overlay">
+                    <div class="panel-header"
+                        style="justify-content: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(140, 140, 140, 0.08); padding-bottom: 1rem;">
+                        <div class="panel-title"
+                            style="font-size: 1.6rem; letter-spacing: 1px; color: var(--primary-blue);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-right: 8px;">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                            LOGISTICS CAREER SUBMISSION
+                        </div>
+                    </div>
+
+                    <p class="form-desc">Provide your information below to register your profile directly with our HR
+                        team.</p>
+
+                    <form id="career-form">
+                        <!-- Form Group 1: Position & Name -->
+                        <div class="dispatch-form-group">
+                            <div class="form-field">
+                                <label for="candidate-position">Position Applied For</label>
+                                <select id="candidate-position" class="form-input" required>
+                                    <option value="" disabled selected>Select Target Role</option>
+                                    <option value="Logistics Operations Coordinator">Logistics Operations Coordinator
+                                    </option>
+                                    <option value="Freight Forwarding executive">Freight Forwarding Executive</option>
+                                    <option value="Warehouse Supervisor">Warehouse Operations Supervisor</option>
+                                    <option value="Customs Specialist">Customs Clearance Specialist</option>
+                                    <option value="Executive - Finance">Executive - Finance & Accounts</option>
+                                    <option value="Other / General Application">Other / General Application</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="candidate-name">Full Name</label>
+                                <input type="text" id="candidate-name" class="form-input" placeholder="Your Name"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Form Group 2: Email & Phone -->
+                        <div class="dispatch-form-group">
+                            <div class="form-field">
+                                <label for="candidate-email">Email Address</label>
+                                <input type="email" id="candidate-email" class="form-input"
+                                    placeholder="name@domain.com" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="candidate-phone">Phone Number</label>
+                                <input type="tel" id="candidate-phone" class="form-input" placeholder="Contact Number"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Form Group 3: Gender & DOB -->
+                        <div class="dispatch-form-group">
+                            <div class="form-field">
+                                <label for="candidate-gender">Gender</label>
+                                <select id="candidate-gender" class="form-input" required>
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="candidate-dob">Date of Birth</label>
+                                <input type="date" id="candidate-dob" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <!-- Form Group 4: Qualification & Experience -->
+                        <div class="dispatch-form-group">
+                            <div class="form-field">
+                                <label for="candidate-qualification">Highest Qualification</label>
+                                <select id="candidate-qualification" class="form-input" required>
+                                    <option value="" disabled selected>Select Qualification</option>
+                                    <option value="High School">High School (10th/12th)</option>
+                                    <option value="Diploma">Diploma / Professional Certificate</option>
+                                    <option value="Graduate">Undergraduate Degree (B.Sc, B.E, B.Com, etc)</option>
+                                    <option value="Post Graduate">Postgraduate Degree (MBA, M.Tech, M.Sc, etc)</option>
+                                    <option value="Other">Other Professional Qualification</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="candidate-experience">Years of Experience</label>
+                                <input type="number" id="candidate-experience" class="form-input" placeholder="e.g. 3"
+                                    min="0" required>
+                            </div>
+                        </div>
+
+                        <!-- Form Group 5: Location & Resume URL -->
+                        <div class="dispatch-form-group">
+                            <div class="form-field">
+                                <label for="candidate-location">Current Location</label>
+                                <input type="text" id="candidate-location" class="form-input" placeholder="City, State"
+                                    required>
+                            </div>
+                            <div class="form-field">
+                                <label for="candidate-resume">Resume / CV Profile Link</label>
+                                <input type="url" id="candidate-resume" class="form-input"
+                                    placeholder="LinkedIn URL or Google Drive link" required>
+                            </div>
+                        </div>
+
+                        <!-- Cover Note / Remarks -->
+                        <div class="form-field" style="margin-bottom: 2rem;">
+                            <label for="candidate-note">Brief Introduction / Covering Note</label>
+                            <textarea id="candidate-note" class="form-input" rows="3"
+                                placeholder="Share a summary of your skills, background, or career aspirations..."></textarea>
+                        </div>
+
+                        <button type="submit" class="dispatch-btn" id="submit-career-btn">
+                            SUBMIT APPLICATION
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-left: 8px;">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script>
+        // Init Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Mobile Menu Toggling
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => {
+            mobileBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown click logic
+        const dropdownToggles = document.querySelectorAll('.dropdown-item > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // Interactive Intro Sequence Transition Logic
+        const video = document.getElementById('career-video');
+        const videoContainer = document.getElementById('video-container');
+        const bgContainer = document.getElementById('bg-container');
+        const formOverlay = document.getElementById('form-overlay');
+        const skipBtn = document.getElementById('skip-intro-btn');
+
+        let transitionTriggered = false;
+        let fallbackTimeout = null;
+
+        // Slow motion video playback rate setup (0.5x speed)
+        video.playbackRate = 1.5;
+        video.addEventListener('loadedmetadata', () => {
+            video.playbackRate = 1.5;
+        });
+        video.addEventListener('play', () => {
+            video.playbackRate = 1.5;
+            // Clear fallback since video is playing successfully
+            if (fallbackTimeout) {
+                clearTimeout(fallbackTimeout);
+                fallbackTimeout = null;
+            }
+        });
+
+        function triggerTransition() {
+            if (transitionTriggered) return;
+            transitionTriggered = true;
+
+            if (fallbackTimeout) {
+                clearTimeout(fallbackTimeout);
+                fallbackTimeout = null;
+            }
+
+            // Fade out video overlay
+            videoContainer.classList.add('fade-out');
+
+            // Fade in background image
+            bgContainer.classList.add('fade-in');
+
+            // Allow body to overflow/scroll if needed, but since it is full-bleed overlay form:
+            document.body.style.overflow = 'auto';
+
+            // GSAP slide and fade-in for the application form
+            gsap.to(formOverlay, {
+                opacity: 1,
+                visibility: 'visible',
+                scale: 1,
+                y: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+
+            // Auto scroll container into view
+            formOverlay.classList.add('active');
+
+            // Pause video just in case it is still playing in the background
+            try {
+                video.pause();
+            } catch (e) { }
+        }
+
+        // 1. Play video and trigger when it reaches the end
+        video.addEventListener('ended', triggerTransition);
+
+        // 2. Click handler for Skip button
+        skipBtn.addEventListener('click', triggerTransition);
+
+        // 3. Fallback timeout in case browser policy stops autoplay or loading stalls
+        fallbackTimeout = setTimeout(() => {
+            triggerTransition();
+        }, 6000); // 6 seconds backup limit if video fails to play or autoplay is blocked
+
+        // Form submission feedback animation
+        const careerForm = document.getElementById('career-form');
+        careerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submit-career-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'LOGGING FILES...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const appId = 'HR-' + Math.floor(100000 + Math.random() * 900000);
+                btn.innerHTML = 'APPLICATION SUBMITTED';
+                btn.style.background = '#10b981';
+                btn.style.boxShadow = '0 10px 25px rgba(16, 185, 129, 0.3)';
+
+                // Create overlay alert
+                const successAlert = document.createElement('div');
+                successAlert.style.marginTop = '1.5rem';
+                successAlert.style.padding = '1.5rem';
+                successAlert.style.background = 'rgba(16, 185, 129, 0.1)';
+                successAlert.style.border = '1px solid #10b981';
+                successAlert.style.borderRadius = '12px';
+                successAlert.style.color = '#10b981';
+                successAlert.style.fontSize = '0.95rem';
+                successAlert.style.lineHeight = '1.5';
+                successAlert.innerHTML = `
+                    <strong>Application Dispatched!</strong><br>
+                    Your recruitment profile has been synchronized with the Pricol HR database.<br>
+                    <strong>Reference ID: ${appId}</strong>. Our team will verify your qualifications soon.
+                `;
+
+                formOverlay.appendChild(successAlert);
+
+                // Smooth scroll down inside form overlay to show the alert
+                gsap.to(formOverlay, {
+                    scrollTo: { y: "max" },
+                    duration: 0.5
+                });
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.style.boxShadow = '';
+                    btn.disabled = false;
+                    successAlert.remove();
+                    careerForm.reset();
+                }, 8000);
+            }, 1800);
+        });
+    </script>
+</body>
+
+</html>

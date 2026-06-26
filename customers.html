@@ -12,7 +12,9 @@
     <nav id="navbar">
         <div class="container nav-content">
             <div class="logo">
-                <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                <a href="index.html">
+                    <img src="Images/logo-img.png" alt="Pricol Logistics Logo">
+                </a>
             </div>
             <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
                 <span></span>
@@ -25,17 +27,203 @@
                 <li class="nav-item"><a href="industries.html">INDUSTRIES</a></li>
                 <li class="nav-item"><a href="coverage.html">COVERAGE</a></li>
                 <li class="nav-item"><a href="customers.html">KEY CUSTOMERS</a></li>
-                <li class="nav-item"><a href="contact.html" class="cta-btn">CONTACT US</a></li>
+                <li class="nav-item dropdown-item">
+                    <a href="javascript:void(0)" class="cta-btn">CONTACT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="contact.html">CONTACT</a></li>
+                        <li><a href="career.html">CAREER</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
     <main id="smooth-wrapper">
         <div id="smooth-content">
-            <section class="section-padding" style="margin-top: 100px; min-height: 50vh;">
+            <!-- Hero section for Key Customers -->
+            <section class="customers-hero">
                 <div class="container">
-                    <h1 style="font-size: 4rem; color: var(--primary-blue); margin-bottom: 2rem;">Key Customers</h1>
-                    <p style="font-size: 1.2rem; color: var(--text-light);">Information about our key customers will be
-                        available here.</p>
+                    <span class="hero-tag">Key Customers</span>
+                    <h1>Partnering with Global Leaders</h1>
+                    <p>Pricol Logistics’s reliable, professional and efficient services caters to several industries including Automobile, Processed foods, Pharma, Footwear & Textiles, Industrial Equipment, Home Appliances, Chemicals and Publishers.</p>
+                </div>
+            </section>
+
+            <!-- Stacking Cards Section -->
+            <section class="key-customers-section">
+                <div class="container key-customers-container">
+                    <!-- Left Side: Sticky Intro Info -->
+                    <div class="sticky-intro">
+                        <div class="sticky-intro-content">
+                            <span class="sub-tag">Industries We Serve</span>
+                            <h2>Tailored Logistics Solutions</h2>
+                            <p>We provide specialized shipping, warehousing, and supply chain management services custom-fitted for diverse business sectors.</p>
+                            
+                            <!-- Visual Progress Indicator -->
+                            <div class="progress-indicator">
+                                <div class="progress-line">
+                                    <div class="progress-fill" id="progress-bar"></div>
+                                </div>
+                                <div class="progress-labels">
+                                    <span class="label-active" id="active-num">01</span>
+                                    <span class="label-divider">/</span>
+                                    <span>08</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Stacking Cards -->
+                    <div class="cards-stack">
+                        <!-- Card 1: Processed Foods -->
+                        <div class="customer-card" data-index="1">
+                            <div class="card-header">
+                                <span class="card-num">01</span>
+                                <h3 class="card-title">Processed Foods</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Delivering temperature-controlled transportation and timely logistics solutions to preserve the freshness and quality of processed foods.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-21.jpg" alt="Processed Foods Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-12.jpg" alt="Processed Foods Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Pharma -->
+                        <div class="customer-card" data-index="2">
+                            <div class="card-header">
+                                <span class="card-num">02</span>
+                                <h3 class="card-title">Pharma</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Providing secure, compliant, and cold-chain logistics for critical pharmaceutical products, ensuring prompt and safe delivery.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-7.jpg" alt="Pharma Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-16.jpg" alt="Pharma Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-6.jpg" alt="Pharma Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Automobile -->
+                        <div class="customer-card" data-index="3">
+                            <div class="card-header">
+                                <span class="card-num">03</span>
+                                <h3 class="card-title">Automobile</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Powering automotive supply chains with just-in-time delivery of parts, sub-assemblies, and finished vehicles to keep production lines running smoothly.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-11.jpg" alt="Automobile Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-20.jpg" alt="Automobile Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-1.jpg" alt="Automobile Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-13.jpg" alt="Automobile Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Footwear & Textiles -->
+                        <div class="customer-card" data-index="4">
+                            <div class="card-header">
+                                <span class="card-num">04</span>
+                                <h3 class="card-title">Footwear & Textiles</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Supporting the fast-paced fashion and textile industry with responsive distribution, warehousing, and end-to-end logistics solutions.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-10.jpg" alt="Footwear & Textiles Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-5.jpg" alt="Footwear & Textiles Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-4.jpg" alt="Footwear & Textiles Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Industrial Equipment -->
+                        <div class="customer-card" data-index="5">
+                            <div class="card-header">
+                                <span class="card-num">05</span>
+                                <h3 class="card-title">Industrial Equipment</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Handling heavy machinery and complex industrial equipment logistics with specialized freight, safety protocols, and reliable handling.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-3.jpg" alt="Industrial Equipment Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-19.jpg" alt="Industrial Equipment Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-14.jpg" alt="Industrial Equipment Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Home Appliances -->
+                        <div class="customer-card" data-index="6">
+                            <div class="card-header">
+                                <span class="card-num">06</span>
+                                <h3 class="card-title">Home Appliances</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Direct-to-retail and warehousing logistics for major home appliance brands, optimizing inventory levels and ensuring damage-free delivery.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-17.jpg" alt="Home Appliances Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-2.jpg" alt="Home Appliances Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-15.jpg" alt="Home Appliances Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-18.jpg" alt="Home Appliances Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Chemicals -->
+                        <div class="customer-card" data-index="7">
+                            <div class="card-header">
+                                <span class="card-num">07</span>
+                                <h3 class="card-title">Chemicals</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Safely transporting chemical products with complete adherence to compliance, hazardous material handling guidelines, and secure logistics.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-8.jpg" alt="Chemicals Customer Logo"></div>
+                                        <div class="logo-box"><img src="images/customer-22.jpg" alt="Chemicals Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 8: Publishers -->
+                        <div class="customer-card" data-index="8">
+                            <div class="card-header">
+                                <span class="card-num">08</span>
+                                <h3 class="card-title">Publishers</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">Efficient distribution and transit for educational, scientific, and mainstream publishers to distribute books, magazines, and periodicals.</p>
+                                <div class="logo-area">
+                                    <span class="logo-label">TRUSTED BY</span>
+                                    <div class="logo-grid">
+                                        <div class="logo-box"><img src="images/customer-23.jpg" alt="Publishers Customer Logo"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -116,6 +304,64 @@
         mobileBtn.addEventListener('click', () => {
             mobileBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
+        });
+
+        // Mobile dropdown click logic
+        const dropdownToggles = document.querySelectorAll('.dropdown-item > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Stacking Cards Scroll Animation
+        const cards = gsap.utils.toArray('.customer-card');
+        const totalCards = cards.length;
+
+        cards.forEach((card, index) => {
+            // Scale and fade cards behind the front-most card
+            if (index < totalCards - 1) {
+                gsap.to(card, {
+                    scale: 0.95 - (totalCards - 1 - index) * 0.005,
+                    opacity: 0.3,
+                    transformOrigin: "top center",
+                    scrollTrigger: {
+                        trigger: cards[index + 1],
+                        start: "top 75%",
+                        end: "top 160px",
+                        scrub: true,
+                        invalidateOnRefresh: true
+                    }
+                });
+            }
+
+            // Sync index progress indicator on scroll
+            ScrollTrigger.create({
+                trigger: card,
+                start: "top 180px",
+                end: "bottom 180px",
+                onToggle: self => {
+                    if (self.isActive) {
+                        const idx = card.getAttribute('data-index');
+                        const paddedIdx = idx.padStart(2, '0');
+                        document.getElementById('active-num').innerText = paddedIdx;
+                        
+                        const progressPercent = (parseInt(idx) / totalCards) * 100;
+                        gsap.to('#progress-bar', { height: `${progressPercent}%`, duration: 0.3 });
+                    }
+                }
+            });
+        });
+
+        // Refresh triggers on load to prevent height mismatches
+        window.addEventListener('load', () => {
+            ScrollTrigger.refresh();
         });
     </script>
 </body>
